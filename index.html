@@ -6,7 +6,7 @@
 <title>Bibi Móveis — Anúncios Ativos</title>
 <style>
   :root { --tinta:#111; --cinza:#8a8a8a; --linha:#e8e8e8; --azul:#1a5fb4; }
-  * { box-sizing:border-box; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body { margin:0; background:#f7f7f7; color:var(--tinta);
          font-family:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif; }
   .topo { background:#fff; border-bottom:1px solid var(--linha); padding:22px 20px; }
@@ -15,31 +15,27 @@
   .kick { font-size:11px; color:var(--cinza); letter-spacing:1.8px;
           text-transform:uppercase; margin-left:10px; }
   .sub { font-size:13px; color:var(--cinza); margin-top:4px; }
-  .barra { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:16px; }
+  .barra { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:16px; }
   .botao { display:inline-block; background:var(--tinta); color:#fff; text-decoration:none;
            font-size:15px; font-weight:600; padding:14px 24px; border-radius:6px; }
   .botao:hover { background:#333; }
-  .alt { font-size:12px; color:var(--cinza); }
-  .alt a { color:var(--azul); }
+  .botao2 { display:inline-block; background:#fff; color:var(--tinta); text-decoration:none;
+            font-size:15px; font-weight:600; padding:13px 22px; border-radius:6px;
+            border:1px solid #d5d5d5; }
+  .botao2:hover { border-color:#aaa; }
+  .nota { font-size:12px; color:var(--cinza); margin-top:8px; line-height:1.5; }
   .visor { max-width:940px; margin:22px auto 40px; padding:0 20px; }
   object, iframe { width:100%; height:78vh; border:1px solid var(--linha);
                    border-radius:6px; background:#fff; display:block; }
-  .dica-mobile { display:none; }
   .rodape { max-width:940px; margin:0 auto 30px; padding:0 20px;
             font-size:11px; color:#b4b4b4; }
 
-  /* celular: navegador mobile nao renderiza PDF embutido -> botao grande no lugar do visor */
+  /* celular: link dentro de PDF nao e clicavel no visualizador mobile -> manda para a lista */
   @media (max-width:820px) {
     .topo { padding:20px 16px; }
     .visor { display:none; }
-    .dica-mobile { display:block; max-width:940px; margin:20px auto 0; padding:0 16px; }
-    .dica-mobile .caixa { background:#fff; border:1px solid var(--linha); border-radius:8px;
-                          padding:18px 16px; text-align:center; }
-    .dica-mobile .titulo { font-size:15px; font-weight:600; margin-bottom:4px; }
-    .dica-mobile .texto { font-size:13px; color:var(--cinza); line-height:1.5; }
     .barra { gap:10px; }
-    .botao { display:block; width:100%; text-align:center; padding:16px; font-size:16px; }
-    .alt { width:100%; text-align:center; }
+    .botao, .botao2 { display:block; width:100%; text-align:center; padding:16px; font-size:16px; }
   }
 </style>
 </head>
@@ -47,19 +43,12 @@
   <div class="topo">
     <div class="wrap">
       <div><span class="marca">Bibi Móveis</span><span class="kick">anúncios ativos</span></div>
-      <div class="sub">18 anúncios ativos · 5 páginas · imagens e links diretos do Instagram</div>
+      <div class="sub">18 anúncios ativos · imagens e links diretos do Instagram</div>
       <div class="barra">
-        <a class="botao" href="Bibi-Moveis-Anuncios-Ativos.pdf" download>Baixar PDF</a>
-        <span class="alt">ou <a href="Bibi-Moveis-Anuncios-Ativos.pdf" target="_blank" rel="noopener">abrir o PDF direto</a></span>
+        <a class="botao" href="anuncios.html">Ver os anúncios no Instagram</a>
+        <a class="botao2" href="Bibi-Moveis-Anuncios-Ativos.pdf" download>Baixar o PDF</a>
       </div>
-    </div>
-  </div>
-
-  <div class="dica-mobile">
-    <div class="caixa">
-      <div class="titulo">Baixe o PDF no botão acima</div>
-      <div class="texto">Depois de baixar, abra pelo app de arquivos do celular.<br>
-      Se preferir, toque em “abrir o PDF direto”.</div>
+      <div class="nota">No celular, use <strong>“Ver os anúncios”</strong> — os links dentro do PDF não abrem em visualizador de celular.</div>
     </div>
   </div>
 

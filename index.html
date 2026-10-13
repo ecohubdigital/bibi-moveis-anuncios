@@ -5,52 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bibi Móveis — Anúncios Ativos</title>
 <style>
-  :root { --tinta:#111; --cinza:#8a8a8a; --linha:#e8e8e8; --azul:#1a5fb4; }
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  body { margin:0; background:#f7f7f7; color:var(--tinta);
-         font-family:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif; }
-  .topo { background:#fff; border-bottom:1px solid var(--linha); padding:20px; }
-  .wrap { max-width:1000px; margin:0 auto; }
-  .cab { display:flex; align-items:center; gap:14px; }
-  .logo { width:42px; height:auto; border-radius:8px; display:block; flex:0 0 auto; }
-  .marca { font-size:20px; font-weight:600; }
-  .kick { font-size:11px; color:var(--cinza); letter-spacing:1.8px; text-transform:uppercase; margin-left:10px; }
-  .sub { font-size:13px; color:var(--cinza); margin-top:6px; line-height:1.5; }
-  .grade { max-width:1000px; margin:22px auto 40px; padding:0 20px;
-            display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
-  .card { display:flex; gap:14px; background:#fff; border:1px solid var(--linha);
-           border-radius:8px; padding:14px; text-decoration:none; color:inherit; }
-  .card:active { background:#fafafa; }
-  .foto { flex:0 0 96px; height:150px; border-radius:6px; overflow:hidden; background:#eee; }
+  body { margin:0; background:#f4f4f1; color:#1b1d16;
+         font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+         -webkit-font-smoothing:antialiased; }
+  header { background:linear-gradient(168deg,#2b2f1b 0%,#383d25 58%,#474d31 100%);
+            color:#fff; padding:36px 20px 30px; text-align:center; }
+  .logo { height:76px; width:auto; display:block; margin:0 auto 20px; }
+  h1 { margin:0; font-size:26px; font-weight:600; letter-spacing:.2px; }
+  .kick { margin-top:8px; font-size:10.5px; letter-spacing:2.8px; text-transform:uppercase;
+           color:#a9b295; font-weight:600; }
+  .faixa { background:#fff; border-bottom:1px solid #e7e7e2; }
+  .faixa .wrap { max-width:1060px; margin:0 auto; padding:11px 20px; display:flex;
+                  justify-content:space-between; align-items:center; gap:12px;
+                  font-size:12px; color:#8b8e80; }
+  .conta { font-weight:600; color:#3f4529; }
+  .grade { max-width:1060px; margin:22px auto 34px; padding:0 20px; display:grid;
+            grid-template-columns:repeat(3,1fr); gap:16px; }
+  .card { display:flex; flex-direction:column; background:#fff; border:1px solid #e9e9e3;
+           border-radius:14px; overflow:hidden; text-decoration:none; color:inherit;
+           box-shadow:0 1px 2px rgba(30,34,20,.05);
+           transition:transform .18s ease, box-shadow .18s ease; }
+  .card:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(30,34,20,.13); }
+  .card:active { transform:scale(.985); }
+  .foto { position:relative; aspect-ratio:4/5; background:#ecece6; overflow:hidden; }
   .foto img { width:100%; height:100%; object-fit:cover; display:block; }
-  .info { display:flex; flex-direction:column; min-width:0; }
-  .nome { font-size:15px; font-weight:600; line-height:1.3; }
-  .data { font-size:11px; color:#b4b4b4; margin-top:4px; }
-  .bt { margin-top:auto; font-size:13px; font-weight:600; color:var(--azul); }
-  .rodape { max-width:1000px; margin:0 auto 30px; padding:0 20px; font-size:11px; color:#b4b4b4; }
-  @media (max-width:640px) {
-    .grade { grid-template-columns:1fr; gap:12px; padding:0 14px; }
-    .foto { flex:0 0 84px; height:132px; }
-    .nome { font-size:14px; }
+  .ig { position:absolute; right:9px; bottom:9px; width:28px; height:28px; border-radius:50%;
+         background:rgba(20,22,14,.55); display:flex; align-items:center; justify-content:center;
+         color:#fff; }
+  .ig svg { width:15px; height:15px; }
+  .info { padding:11px 12px 13px; display:flex; flex-direction:column; gap:3px;
+           min-width:0; flex:1; }
+  .nome { font-size:14.5px; font-weight:600; line-height:1.3; display:-webkit-box;
+           -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .data { font-size:10.5px; color:#a3a698; }
+  .bt { margin-top:auto; padding-top:7px; font-size:12px; font-weight:600; color:#4a5033; }
+  .rodape { max-width:1060px; margin:0 auto 34px; padding:0 20px; font-size:11px;
+             color:#b0b3a5; text-align:center; }
+  @media (max-width:880px) { .grade { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px) {
+    header { padding:30px 16px 26px; }
+    .logo { height:62px; margin-bottom:16px; }
+    h1 { font-size:23px; }
+    .grade { gap:11px; padding:0 12px; }
+    .info { padding:9px 10px 11px; }
+    .nome { font-size:13.5px; }
   }
 </style>
 </head>
 <body>
-  <div class="topo">
+  <header>
+    <img class="logo" src="img/logo.png" alt="EcoDigital">
+    <h1>Bibi Móveis</h1>
+    <div class="kick">Anúncios ativos</div>
+  </header>
+
+  <div class="faixa">
     <div class="wrap">
-      <div class="cab">
-        <img class="logo" src="img/logo.png" alt="EcoDigital">
-        <div>
-          <div><span class="marca">Bibi Móveis</span><span class="kick">anúncios ativos</span></div>
-          <div class="sub">Toque em qualquer anúncio para abrir o vídeo no Instagram.</div>
-        </div>
-      </div>
+      <span class="conta">20 anúncios no ar</span>
+      <span>Toque para abrir no Instagram</span>
     </div>
   </div>
 
   <div class="grade">
       <a class="card" href="https://www.instagram.com/reel/DeMqkWkhr4D/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/01_18133132285690730.jpg" alt="Roupeiro Orion Premium" loading="lazy"></div>
+        <div class="foto"><img src="img/01_18133132285690730.jpg" alt="Roupeiro Orion Premium" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro Orion Premium</div>
           <div class="data">publicado em 07/10</div>
@@ -58,7 +78,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DeMZnP3hr-X/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/02_18213165835364294.jpg" alt="Guarda-Roupa Nice Lopas" loading="lazy"></div>
+        <div class="foto"><img src="img/02_18213165835364294.jpg" alt="Guarda-Roupa Nice Lopas" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Guarda-Roupa Nice Lopas</div>
           <div class="data">publicado em 07/10</div>
@@ -66,7 +87,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/p/DeJzhczHPuI/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/03_18620771602051582.jpg" alt="Roupeiro Império" loading="lazy"></div>
+        <div class="foto"><img src="img/03_18620771602051582.jpg" alt="Roupeiro Império" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro Império</div>
           <div class="data">publicado em 06/10</div>
@@ -74,7 +96,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DeHzdJ8hDXX/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/04_18075904448447871.jpg" alt="Roupeiro Anjos 3 Portas" loading="lazy"></div>
+        <div class="foto"><img src="img/04_18075904448447871.jpg" alt="Roupeiro Anjos 3 Portas" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro Anjos 3 Portas</div>
           <div class="data">publicado em 05/10</div>
@@ -82,7 +105,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/Dd9uB1-Bxgc/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/05_18128544070693546.jpg" alt="Conjunto Box América Queen" loading="lazy"></div>
+        <div class="foto"><img src="img/05_18128544070693546.jpg" alt="Conjunto Box América Queen" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Conjunto Box América Queen</div>
           <div class="data">publicado em 01/10</div>
@@ -90,7 +114,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/Dd4IA7bTXme/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/06_17921035077440307.jpg" alt="Cozinha Compacta Henn Briz B107" loading="lazy"></div>
+        <div class="foto"><img src="img/06_17921035077440307.jpg" alt="Cozinha Compacta Henn Briz B107" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Cozinha Compacta Henn Briz B107</div>
           <div class="data">publicado em 29/09</div>
@@ -98,7 +123,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/Dd11JR2ul2s/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/07_18380982781225595.jpg" alt="Roupeiro Quero Quero" loading="lazy"></div>
+        <div class="foto"><img src="img/07_18380982781225595.jpg" alt="Roupeiro Quero Quero" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro Quero Quero</div>
           <div class="data">publicado em 28/09</div>
@@ -106,7 +132,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/Dd1dRkjhT8L/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/20_oss_1583434109923623.jpg" alt="Conjunto Box América Queen" loading="lazy"></div>
+        <div class="foto"><img src="img/20_oss_1583434109923623.jpg" alt="Conjunto Box América Queen" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Conjunto Box América Queen</div>
           <div class="data">publicado em 28/09</div>
@@ -114,7 +141,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DdtW_8iOXKw/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/08_17942641581089245.jpg" alt="Combo Cômoda Maggiore + Box Solteiro" loading="lazy"></div>
+        <div class="foto"><img src="img/08_17942641581089245.jpg" alt="Combo Cômoda Maggiore + Box Solteiro" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Combo Cômoda Maggiore + Box Solteiro</div>
           <div class="data">publicado em 25/09</div>
@@ -122,7 +150,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/Ddmi2tyhHv1/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/09_18142428838595632.jpg" alt="Roupeiro Veneza" loading="lazy"></div>
+        <div class="foto"><img src="img/09_18142428838595632.jpg" alt="Roupeiro Veneza" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro Veneza</div>
           <div class="data">publicado em 22/09</div>
@@ -130,7 +159,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DdmP4eSsK0r/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/10_18021969908860035.jpg" alt="Cômoda Maggiore" loading="lazy"></div>
+        <div class="foto"><img src="img/10_18021969908860035.jpg" alt="Cômoda Maggiore" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Cômoda Maggiore</div>
           <div class="data">publicado em 22/09</div>
@@ -138,7 +168,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DdmAHwAxPGQ/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/11_17904033153571338.jpg" alt="Guarda-Roupa Andorinha" loading="lazy"></div>
+        <div class="foto"><img src="img/11_17904033153571338.jpg" alt="Guarda-Roupa Andorinha" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Guarda-Roupa Andorinha</div>
           <div class="data">publicado em 22/09</div>
@@ -146,7 +177,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DdW5XXghQDd/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/12_18115955365770695.jpg" alt="Roupeiro Lucca" loading="lazy"></div>
+        <div class="foto"><img src="img/12_18115955365770695.jpg" alt="Roupeiro Lucca" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro Lucca</div>
           <div class="data">publicado em 16/09</div>
@@ -154,7 +186,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DdJfJJohTDd/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/13_18112219688014822.jpg" alt="Roupeiro New Jade" loading="lazy"></div>
+        <div class="foto"><img src="img/13_18112219688014822.jpg" alt="Roupeiro New Jade" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro New Jade</div>
           <div class="data">publicado em 11/09</div>
@@ -162,7 +195,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DdHfjSChZCS/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/14_18114370762979617.jpg" alt="Colchão Espuma D20" loading="lazy"></div>
+        <div class="foto"><img src="img/14_18114370762979617.jpg" alt="Colchão Espuma D20" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Colchão Espuma D20</div>
           <div class="data">publicado em 10/09</div>
@@ -170,7 +204,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DcyhkYPha37/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/15_17883704934485711.jpg" alt="Cozinha Ágata" loading="lazy"></div>
+        <div class="foto"><img src="img/15_17883704934485711.jpg" alt="Cozinha Ágata" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Cozinha Ágata</div>
           <div class="data">publicado em 02/09</div>
@@ -178,7 +213,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/Dcvt6PYvHKb/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/16_18104934149615288.jpg" alt="Home Noah" loading="lazy"></div>
+        <div class="foto"><img src="img/16_18104934149615288.jpg" alt="Home Noah" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Home Noah</div>
           <div class="data">publicado em 01/09</div>
@@ -186,7 +222,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/Dcjg8SiJhiu/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/17_18090947687426982.jpg" alt="Cozinha Pérola" loading="lazy"></div>
+        <div class="foto"><img src="img/17_18090947687426982.jpg" alt="Cozinha Pérola" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Cozinha Pérola</div>
           <div class="data">publicado em 27/08</div>
@@ -194,7 +231,8 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DcgwTDdPONP/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/18_18108157184140630.jpg" alt="Roupeiro B367" loading="lazy"></div>
+        <div class="foto"><img src="img/18_18108157184140630.jpg" alt="Roupeiro B367" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro B367</div>
           <div class="data">publicado em 26/08</div>
@@ -202,14 +240,16 @@
         </div>
       </a>
       <a class="card" href="https://www.instagram.com/reel/DbTe6ROyKfj/" target="_blank" rel="noopener">
-        <div class="foto"><img src="img/19_17906497005286447.jpg" alt="Roupeiro Hércules" loading="lazy"></div>
+        <div class="foto"><img src="img/19_17906497005286447.jpg" alt="Roupeiro Hércules" loading="lazy">
+          <span class="ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></div>
         <div class="info">
           <div class="nome">Roupeiro Hércules</div>
           <div class="data">publicado em 27/07</div>
           <div class="bt">Ver no Instagram &rarr;</div>
         </div>
-      </a></div>
+      </a>
+  </div>
 
-  <div class="rodape">Bibi Móveis · 20 anúncios ativos em 13/10/2026</div>
+  <div class="rodape">Bibi Móveis · atualizado em 07/10/2026 · EcoDigital</div>
 </body>
 </html>

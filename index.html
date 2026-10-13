@@ -11,6 +11,8 @@
          font-family:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif; }
   .topo { background:#fff; border-bottom:1px solid var(--linha); padding:20px; }
   .wrap { max-width:1000px; margin:0 auto; }
+  .cab { display:flex; align-items:center; gap:14px; }
+  .logo { width:42px; height:auto; border-radius:8px; display:block; flex:0 0 auto; }
   .marca { font-size:20px; font-weight:600; }
   .kick { font-size:11px; color:var(--cinza); letter-spacing:1.8px; text-transform:uppercase; margin-left:10px; }
   .sub { font-size:13px; color:var(--cinza); margin-top:6px; line-height:1.5; }
@@ -36,8 +38,13 @@
 <body>
   <div class="topo">
     <div class="wrap">
-      <div><span class="marca">Bibi Móveis</span><span class="kick">anúncios ativos</span></div>
-      <div class="sub">Toque em qualquer anúncio para abrir o vídeo no Instagram.</div>
+      <div class="cab">
+        <img class="logo" src="img/logo.png" alt="EcoDigital">
+        <div>
+          <div><span class="marca">Bibi Móveis</span><span class="kick">anúncios ativos</span></div>
+          <div class="sub">Toque em qualquer anúncio para abrir o vídeo no Instagram.</div>
+        </div>
+      </div>
     </div>
   </div>
 
